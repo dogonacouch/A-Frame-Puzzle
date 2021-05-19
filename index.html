@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Puzzle</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="code.js"></script>
+</head>
+
+<body>
+    <a-scene>
+
+        <!-- Asset Manager -->
+
+        <a-assets>
+            <a-asset-item id="door1" src="assets/door1/scene.gltf"></a-asset-item>
+            <a-asset-item id="door2" src="assets/door2/scene.gltf"></a-asset-item>
+            <a-asset-item id="door3" src="assets/door3/scene.gltf"></a-asset-item>
+        </a-assets>
+<!--event-set__targetposition="_event: click; _target:#cameraEntity; 
+            material.position: 5 -10 0"-->
+<!--Set 1-->
+        <a-entity scale="0.3 0.3 0.3" position="0 0 0">
+            <a-box color="black" position="18 7.5 0" scale="40 15 21" material="side: double"></a-box>
+            <a-light position="27 4 9" rotation="0 58.5 0" type="spot" angle="30"></a-light>
+            <a-light color="#ff6250" position="27 4 -9" rotation="0 120 0" type="spot" angle="30" distance="30" intensity="2"></a-light>
+            <a-entity gltf-model="#door1" position="0 5.1 0" scale=".05 .05 .05" 
+            ></a-entity>
+            <a-entity gltf-model="#door2" rotation="0 270 0" position="0 10.7 -7" scale=".05 .05 .05" event-set__targetvisibility="_event:click; _target:#door1; material.color:#FFFFFF"></a-entity>
+            <a-entity gltf-model="#door3" position="0 6 7" scale=".03 .03 .03"></a-entity>
+        </a-entity>
+<!--Set 2-->
+        <a-entity scale="0.3 0.3 0.3" position="0 -10 0">
+            <a-box color="#690f08" position="18 7.5 0" scale="40 15 21" material="side: double"></a-box>
+            <a-light position="27 4 9" rotation="0 58.5 0" type="spot" angle="30"></a-light>
+            <a-light color="#ff6250" position="27 4 -9" rotation="0 120 0" type="spot" angle="30" distance="30" intensity="2"></a-light>
+            <a-entity gltf-model="#door1" position="0 5.1 0" scale=".05 .05 .05"></a-entity>
+            <a-entity gltf-model="#door2" rotation="0 270 0" position="0 10.7 -7" scale=".05 .05 .05"></a-entity>
+            <a-entity gltf-model="#door3" position="0 6 7" scale=".03 .03 .03"></a-entity>
+        </a-entity>
+<!--Set 3-->
+        <a-entity scale="0.3 0.3 0.3" position="0 -20 0">
+            <a-box color="#8a221a" position="18 7.5 0" scale="40 15 21" material="side: double"></a-box>
+            <a-light position="27 4 9" rotation="0 58.5 0" type="spot" angle="30"></a-light>
+            <a-light color="#ff6250" position="27 4 -9" rotation="0 120 0" type="spot" angle="30" distance="30" intensity="2"></a-light>
+            <a-entity gltf-model="#door1" position="0 5.1 0" scale=".05 .05 .05"></a-entity>
+            <a-entity gltf-model="#door2" rotation="0 270 0" position="0 10.7 -7" scale=".05 .05 .05"></a-entity>
+            <a-entity gltf-model="#door3" position="0 6 7" scale=".03 .03 .03"></a-entity>
+        </a-entity>
+<a-text value="Reload the page, you lost" color="black" position="0 0 20"></a-text>
+<!--Set 4-->
+        <a-entity scale="0.3 0.3 0.3" position="0 -30 0">
+            <a-box color="red" position="18 7.5 0" scale="40 15 21" material="side: double"></a-box>
+            <a-light position="27 4 0" rotation="0 90 0" type="spot" angle="30"></a-light>
+        </a-entity>
+
+<!---->
+
+<a-camera wasd-controls-enabled="false" position="5 2 0">
+    <a-entity cursor="fuse:true; fuseTimout: 2000;" material="color:#FFFFFF" geometry="primitive: sphere; radius: 0.005;"
+        position="0 0 -1" animation__enter="property: scale; to:3 3 3; dur:2000; easing:linear; 
+    startEvents: mouseenter;"
+    animation__leave="property: scale; to:1 1 1; dur:2000; easing:linear; 
+    startEvents: mouseleave;"></a-entity>
+</a-camera>
+
+    </a-scene>
+</body>
+
+</html>
